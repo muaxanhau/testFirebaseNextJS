@@ -5,18 +5,20 @@ import { ScreenBaseModel, loginFormSchema } from "@/models";
 import { useHookForm } from "@/utils";
 import React, { useEffect } from "react";
 import { useGetAllCategoriesRepo, useLoginRepo } from "@/repositories";
+import { useRouter } from "next/navigation";
 
 const Page: ScreenBaseModel = () => {
+  const route = useRouter();
   const { categories } = useGetAllCategoriesRepo();
 
-  // useEffect(() => {
-  //   console.log(categories);
-  // }, [categories]);
+  const onClick = (id: string) => () => {
+    route.push(`/categories/${id}`);
+  };
 
   return (
     <div>
       {categories?.map((category) => (
-        <div key={category.id}>
+        <div key={category.id} onClick={onClick(category.id)}>
           <p>{category.name}</p>
         </div>
       ))}
