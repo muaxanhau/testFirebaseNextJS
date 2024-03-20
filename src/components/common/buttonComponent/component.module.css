@@ -1,0 +1,5 @@
+.container {
+    all: unset;
+    padding: var(--padding-1);
+    background-color: var(--red);
+}

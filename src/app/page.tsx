@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { ScreenBaseModel } from "@/models";
+import { useFirstSetupApp } from "@/utils";
 
-export default function Home() {
+const Page: ScreenBaseModel = () => {
+  useFirstSetupApp();
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -92,4 +98,6 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+
+export default Page;

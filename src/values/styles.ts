@@ -1,0 +1,16 @@
+export const valueStyles = {
+  padding: 24,
+  padding2: 16,
+  padding3: 8,
+  margin: 24,
+  margin2: 16,
+  margin3: 8,
+  borderRadius2: 10,
+  borderRadius: 24,
+  gap: 16,
+  gap2: 9,
+  line: 0.2,
+  line2: 0.5,
+  line3: 1,
+  icon: 24,
+};
