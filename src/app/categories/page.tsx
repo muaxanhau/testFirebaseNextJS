@@ -6,6 +6,7 @@ import { useHookForm } from "@/utils";
 import React, { useEffect } from "react";
 import { useGetAllCategoriesRepo, useLoginRepo } from "@/repositories";
 import { useRouter } from "next/navigation";
+import { Table2 } from "./test/table2/table2";
 
 const Page: ScreenBaseModel = () => {
   const router = useRouter();
@@ -15,6 +16,8 @@ const Page: ScreenBaseModel = () => {
     router.push(`/categories/${id}`);
   };
   const onClickAdd = () => router.push("/categories/add");
+
+  return <Table2 />;
 
   return (
     <div>
