@@ -8,17 +8,20 @@ import { useGetAllCategoriesRepo, useLoginRepo } from "@/repositories";
 import { useRouter } from "next/navigation";
 
 const Page: ScreenBaseModel = () => {
-  const route = useRouter();
+  const router = useRouter();
   const { categories } = useGetAllCategoriesRepo();
 
-  const onClick = (id: string) => () => {
-    route.push(`/categories/${id}`);
+  const onClickCategory = (id: string) => () => {
+    router.push(`/categories/${id}`);
   };
+  const onClickAdd = () => router.push("/categories/add");
 
   return (
     <div>
+      <ButtonComponent title="Add Category" onClick={onClickAdd} />
+
       {categories?.map((category) => (
-        <div key={category.id} onClick={onClick(category.id)}>
+        <div key={category.id} onClick={onClickCategory(category.id)}>
           <p>{category.name}</p>
         </div>
       ))}

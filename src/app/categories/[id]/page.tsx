@@ -12,8 +12,8 @@ import {
 import { useParams } from "next/navigation";
 
 const Page: ScreenBaseModel = () => {
-  const { categoryId } = useParams<{ categoryId: string }>();
-  const { category } = useGetCategoryRepo({ id: categoryId });
+  const { id } = useParams<{ id: string }>();
+  const { category } = useGetCategoryRepo({ id });
 
   // useEffect(() => {
   //   console.log(categories);
