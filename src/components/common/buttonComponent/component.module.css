@@ -1,5 +1,12 @@
 .container {
     all: unset;
     padding: var(--padding-1);
+    background-color: var(--red300);
+    border-radius: var(--border-radius-2);
+    transition: var(--transition);
+}
+.container:hover {
+    transform: scale(1.2);
     background-color: var(--red);
+    border-radius: var(--border-radius-1);
 }

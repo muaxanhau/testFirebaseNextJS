@@ -39,7 +39,7 @@ const Page: ScreenBaseModel = () => {
       <InputTextComponent control={control} name="description" />
       <InputTextComponent control={control} name="image" />
 
-      <ButtonComponent title="Login" onClick={onClickAdd} />
+      <ButtonComponent title="Add" onClick={onClickAdd} />
     </div>
   );
 };
