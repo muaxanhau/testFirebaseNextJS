@@ -27,8 +27,8 @@ export const useFirstSetupApp = () => {
     router.push(isAuthorized ? "/categories" : "/login");
   };
 
-  useEffect(() => {
-    const tokenListener = auth.onIdTokenChanged(async (user) => {
+  useLayoutEffect(() => {
+    auth.onIdTokenChanged(async (user) => {
       if (!user) {
         resetAllStores();
         queryClient.clear();
@@ -38,8 +38,6 @@ export const useFirstSetupApp = () => {
       const token = await user.getIdToken();
       setAuth({ token });
     });
-
-    // return () => tokenListener();
   }, []);
 
   useEffect(checkNavigation, []);

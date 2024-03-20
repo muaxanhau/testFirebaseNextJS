@@ -10,7 +10,13 @@ import { useRouter } from "next/navigation";
 
 const Page: ScreenBaseModel = () => {
   const router = useRouter();
-  const { control, handleSubmit } = useHookForm({ schema: loginFormSchema });
+  const { control, handleSubmit } = useHookForm({
+    schema: loginFormSchema,
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
   const { login } = useLoginRepo({
     onSuccess: () => router.push("/categories"),
   });
