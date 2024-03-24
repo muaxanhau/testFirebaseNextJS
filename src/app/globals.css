@@ -47,10 +47,11 @@
   --main-width-root: 970px;
   --main-height-root: 600px;
 
-  --border-radius-1: 1rem;
-  --border-radius-2: 1.5rem;
+  --border-radius-1: 0.5rem;
+  --border-radius-2: 1rem;
 
   --padding-1: 1rem;
+  --padding-2: 2rem;
   --shadow-width-inset: 0.5rem;
   --shadow-width-outset: 1rem;
 
@@ -76,7 +77,9 @@
   --index-5: 500;
 
   --scrollbar-width: 10px;
-
+  --line-1: 0.5px;
+  --line-2: 1px;
+  --line-3: 2px;
 
 
   --transparent: transparent;

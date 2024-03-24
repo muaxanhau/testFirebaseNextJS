@@ -25,11 +25,14 @@ const Page: ScreenBaseModel = () => {
 
   return (
     <div className={styles.container}>
-      <h1>page</h1>
-      <InputTextComponent control={control} name="email" />
-      <InputTextComponent control={control} name="password" />
+      <div className={styles.wrapper}>
+        <h1>Login</h1>
 
-      <ButtonComponent title="Login" onClick={onClickLogin} />
+        <InputTextComponent control={control} name="email" />
+        <InputTextComponent control={control} name="password" type="password" />
+
+        <ButtonComponent title="Login" onClick={onClickLogin} />
+      </div>
     </div>
   );
 };
