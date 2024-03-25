@@ -4,6 +4,9 @@
     background-color: var(--red300);
     border-radius: var(--border-radius-1);
     transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container:hover {
     transform: scale(1.05);

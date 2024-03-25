@@ -14,8 +14,15 @@ type ButtonProps = ComponentBaseModel<{
   isLoading?: boolean;
 }>;
 export const ButtonComponent: FC<ButtonProps> = ({ onClick, title }) => {
+  const onClickButton = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.stopPropagation();
+    onClick();
+  };
+
   return (
-    <button className={styles.container} onClick={onClick}>
+    <button className={styles.container} onClick={onClickButton}>
       <p>{title}</p>
     </button>
   );

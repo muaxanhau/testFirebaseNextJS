@@ -9,19 +9,24 @@ import {
   useGetCategoryRepo,
   useLoginRepo,
 } from "@/repositories";
-import { useParams } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 
 const Page: ScreenBaseModel = () => {
   const { id } = useParams<{ id: string }>();
+  const router = useRouter();
+  const pathname = usePathname();
   const { category } = useGetCategoryRepo({ id });
 
-  // useEffect(() => {
-  //   console.log(categories);
-  // }, [categories]);
+  const onClick = () => {
+    router.push(`${pathname}/items`);
+  };
 
   return (
     <div>
       <h1>{category?.name}</h1>
+      <p>{category?.description}</p>
+
+      <ButtonComponent title="Add Item" onClick={onClick} />
     </div>
   );
 };

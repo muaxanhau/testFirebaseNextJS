@@ -15,7 +15,7 @@ import {
 import { z } from "zod";
 import { resetAllStores, useAuthStore } from "@/stores";
 import { auth } from "@/repositories";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export const useFirstSetupApp = () => {
   const queryClient = useQueryClient();
@@ -143,4 +143,11 @@ export const useIsLoading = () => {
   const isLoading = !!isFetching || !!isMutating;
 
   return isLoading;
+};
+
+export const useCanGoBack = () => {
+  const pathname = usePathname();
+
+  const canGoBack = pathname !== "/" && pathname !== "/login";
+  return canGoBack;
 };

@@ -4,42 +4,42 @@ import { ButtonComponent, InputTextComponent } from "@/components";
 import {
   ScreenBaseModel,
   addCategoryFormSchema,
+  addItemFormSchema,
   loginFormSchema,
 } from "@/models";
 import { useHookForm } from "@/utils";
 import React, { useEffect } from "react";
 import {
   useAddCategoryRepo,
+  useAddItemRepo,
   useGetAllCategoriesRepo,
   useGetCategoryRepo,
   useLoginRepo,
 } from "@/repositories";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import styles from "./page.module.css";
 
 const Page: ScreenBaseModel = () => {
   const router = useRouter();
+  const { id } = useParams<{ id: string }>();
   const { control, handleSubmit } = useHookForm({
-    schema: addCategoryFormSchema,
+    schema: addItemFormSchema,
     defaultValues: {
       name: "",
-      description: "",
-      image: "",
+      color: "",
+      categoryId: id,
     },
   });
-  const { addCategory } = useAddCategoryRepo({
-    onSuccess: () => router.back(),
-  });
+  const { addItem } = useAddItemRepo({ onSuccess: router.back });
 
-  const onClickAdd = handleSubmit((data) => addCategory(data));
+  const onClickAdd = handleSubmit((data) => addItem(data));
 
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <h1>Add category</h1>
+        <h1>Add item</h1>
         <InputTextComponent control={control} name="name" />
-        <InputTextComponent control={control} name="description" />
-        {/* <InputTextComponent control={control} name="image" /> */}
+        <InputTextComponent control={control} name="color" />
 
         <ButtonComponent title="Add" onClick={onClickAdd} />
       </div>

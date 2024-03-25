@@ -4,30 +4,40 @@ import { ButtonComponent, InputTextComponent } from "@/components";
 import { ScreenBaseModel, loginFormSchema } from "@/models";
 import { useHookForm } from "@/utils";
 import React, { useEffect } from "react";
-import { useGetAllCategoriesRepo, useLoginRepo } from "@/repositories";
+import {
+  useDeleteCategoryRepo,
+  useGetAllCategoriesRepo,
+  useLoginRepo,
+} from "@/repositories";
 import { useRouter } from "next/navigation";
 import { Table2 } from "./test/table2/table2";
+import styles from "./page.module.css";
 
 const Page: ScreenBaseModel = () => {
   const router = useRouter();
   const { categories } = useGetAllCategoriesRepo();
+  const { deleteCategory } = useDeleteCategoryRepo();
 
+  const onClickAdd = () => router.push("/categories/add");
   const onClickCategory = (id: string) => () => {
     router.push(`/categories/${id}`);
   };
-  const onClickAdd = () => router.push("/categories/add");
+  const onClickDelete = (id: string) => () => {
+    deleteCategory({ id });
+  };
 
-  return <Table2 />;
+  // return <Table2 />;
 
   return (
-    <div>
-      <ButtonComponent title="Add Category" onClick={onClickAdd} />
+    <div className={styles.container}>
+      {categories?.map(({ id, name }) => (
+        <div key={id} className={styles.wrapper} onClick={onClickCategory(id)}>
+          <p>{name}</p>
 
-      {categories?.map((category) => (
-        <div key={category.id} onClick={onClickCategory(category.id)}>
-          <p>{category.name}</p>
+          <ButtonComponent title="Delete" onClick={onClickDelete(id)} />
         </div>
       ))}
+      <ButtonComponent title="Add Category" onClick={onClickAdd} />
     </div>
   );
 };
