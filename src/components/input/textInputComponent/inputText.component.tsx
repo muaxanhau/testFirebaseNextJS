@@ -12,9 +12,13 @@ import {
 
 type InputTextProps<T extends FieldValues> = UseControllerProps<T> & {
   type?: HTMLInputTypeAttribute | undefined;
+  placeholder?: string;
+  title?: string;
 };
 export function InputTextComponent<T extends FieldValues>({
   type,
+  placeholder,
+  title,
   ...rest
 }: InputTextProps<T>) {
   const {
@@ -24,14 +28,15 @@ export function InputTextComponent<T extends FieldValues>({
 
   return (
     <div className={styles.container}>
+      <p>{title}</p>
       <input
         {...field}
-        placeholder={rest.name}
+        placeholder={placeholder}
         className={styles.input}
         security="•"
         type={type}
       />
-      <p style={{ opacity: !!error?.message ? 1 : 0 }}>
+      <p className={styles.error} style={{ opacity: !!error?.message ? 1 : 0 }}>
         {error?.message || "_"}
       </p>
     </div>

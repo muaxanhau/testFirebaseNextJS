@@ -30,7 +30,7 @@ const Page: ScreenBaseModel = () => {
       categoryId: id,
     },
   });
-  const { addItem } = useAddItemRepo({ onSuccess: router.back });
+  const { addItem, isPending } = useAddItemRepo({ onSuccess: router.back });
 
   const onClickAdd = handleSubmit((data) => addItem(data));
 
@@ -38,10 +38,19 @@ const Page: ScreenBaseModel = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <h1>Add item</h1>
-        <InputTextComponent control={control} name="name" />
-        <InputTextComponent control={control} name="color" />
+        <InputTextComponent control={control} name="name" placeholder="name" />
+        <InputTextComponent
+          control={control}
+          name="color"
+          placeholder="color"
+        />
 
-        <ButtonComponent title="Add" onClick={onClickAdd} />
+        <ButtonComponent
+          title="Add"
+          onClick={onClickAdd}
+          isLoading={isPending}
+          color="success"
+        />
       </div>
     </div>
   );

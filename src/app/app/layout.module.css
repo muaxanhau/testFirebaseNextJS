@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+.child {
+    flex:1
+}

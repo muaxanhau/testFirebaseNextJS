@@ -17,8 +17,8 @@ const Page: ScreenBaseModel = () => {
       password: "",
     },
   });
-  const { login } = useLoginRepo({
-    onSuccess: () => router.push("/categories"),
+  const { login, isPending } = useLoginRepo({
+    onSuccess: () => router.push("/app/categories"),
   });
 
   const onClickLogin = handleSubmit((data) => login(data));
@@ -28,10 +28,24 @@ const Page: ScreenBaseModel = () => {
       <div className={styles.wrapper}>
         <h1>Login</h1>
 
-        <InputTextComponent control={control} name="email" />
-        <InputTextComponent control={control} name="password" type="password" />
+        <InputTextComponent
+          control={control}
+          name="email"
+          placeholder="email"
+        />
+        <InputTextComponent
+          control={control}
+          name="password"
+          type="password"
+          placeholder="password"
+        />
 
-        <ButtonComponent title="Login" onClick={onClickLogin} />
+        <ButtonComponent
+          title="Login"
+          onClick={onClickLogin}
+          type="outline"
+          isLoading={isPending}
+        />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { Prettify } from "@/utils";
-import { FC, PropsWithChildren } from "react";
+import { FC, HTMLAttributes, PropsWithChildren } from "react";
 
 /**
  * screen
@@ -11,7 +11,7 @@ export type ScreenBaseModel<T = {}> = Readonly<T>;
  */
 export type ComponentBaseModel<T = {}> = Readonly<
   T & {
-    // style?: ViewStyle;
+    style?: React.CSSProperties;
   }
 >;
 export type ComponentWithChildBaseModel<T = {}> = PropsWithChildren<

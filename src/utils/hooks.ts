@@ -24,7 +24,7 @@ export const useFirstSetupApp = () => {
 
   const checkNavigation = () => {
     const isAuthorized = auth.currentUser !== null;
-    router.push(isAuthorized ? "/categories" : "/login");
+    router.push(isAuthorized ? "/app/categories" : "/login");
   };
 
   useLayoutEffect(() => {

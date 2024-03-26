@@ -27,8 +27,8 @@ const Page: ScreenBaseModel = () => {
       image: "",
     },
   });
-  const { addCategory } = useAddCategoryRepo({
-    onSuccess: () => router.back(),
+  const { addCategory, isPending } = useAddCategoryRepo({
+    onSuccess: router.back,
   });
 
   const onClickAdd = handleSubmit((data) => addCategory(data));
@@ -37,11 +37,20 @@ const Page: ScreenBaseModel = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <h1>Add category</h1>
-        <InputTextComponent control={control} name="name" />
-        <InputTextComponent control={control} name="description" />
+        <InputTextComponent control={control} name="name" placeholder="name" />
+        <InputTextComponent
+          control={control}
+          name="description"
+          placeholder="description"
+        />
         {/* <InputTextComponent control={control} name="image" /> */}
 
-        <ButtonComponent title="Add" onClick={onClickAdd} />
+        <ButtonComponent
+          title="Add"
+          onClick={onClickAdd}
+          isLoading={isPending}
+          color="success"
+        />
       </div>
     </div>
   );

@@ -16,11 +16,11 @@ import styles from "./page.module.css";
 const Page: ScreenBaseModel = () => {
   const router = useRouter();
   const { categories } = useGetAllCategoriesRepo();
-  const { deleteCategory } = useDeleteCategoryRepo();
+  const { deleteCategory, isPending } = useDeleteCategoryRepo();
 
-  const onClickAdd = () => router.push("/categories/add");
+  const onClickAdd = () => router.push("/app/categories/add");
   const onClickCategory = (id: string) => () => {
-    router.push(`/categories/${id}`);
+    router.push(`/app/categories/${id}`);
   };
   const onClickDelete = (id: string) => () => {
     deleteCategory({ id });
@@ -34,7 +34,12 @@ const Page: ScreenBaseModel = () => {
         <div key={id} className={styles.wrapper} onClick={onClickCategory(id)}>
           <p>{name}</p>
 
-          <ButtonComponent title="Delete" onClick={onClickDelete(id)} />
+          <ButtonComponent
+            title="Delete"
+            onClick={onClickDelete(id)}
+            type="outline"
+            isLoading={isPending}
+          />
         </div>
       ))}
       <ButtonComponent title="Add Category" onClick={onClickAdd} />

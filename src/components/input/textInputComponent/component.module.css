@@ -7,10 +7,11 @@
 }
 .input {
     all: unset;
-    border-width: var(--line-1);
-    border-color: var(--neutral900);
+    border-bottom: var(--line-1) var(--neutral900) solid;
     background-color: var(--transparent);
     padding: var(--padding-1);
-    border-radius: var(--border-radius-1);
-    border-style: solid;
+    color: var(--neutral900);
+}
+.error {
+    color: var(--red);
 }

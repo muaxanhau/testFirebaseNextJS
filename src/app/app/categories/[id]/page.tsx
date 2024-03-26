@@ -22,7 +22,7 @@ const Page: ScreenBaseModel = () => {
   };
 
   return (
-    <div>
+    <div style={{ flex: 1 }}>
       <h1>{category?.name}</h1>
       <p>{category?.description}</p>
 

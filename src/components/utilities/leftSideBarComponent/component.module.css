@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary300);
+    justify-content: space-between;
+    min-width: 20vw;
+    padding: var(--padding-1);
+}
