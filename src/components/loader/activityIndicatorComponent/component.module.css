@@ -11,16 +11,16 @@
     border-radius: 2px;
 }
 .peace1 {
-    background-color: var(--primary);
+    background-color: var(--primary300);
 }
 .peace2 {
-    background-color: var(--red);
+    background-color: var(--red300);
 }
 .peace3 {
-    background-color: var(--green);
+    background-color: var(--green300);
 }
 .peace4 {
-    background-color: var(--yellow);
+    background-color: var(--yellow300);
 }
 
 @keyframes spin {

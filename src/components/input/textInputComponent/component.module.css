@@ -14,4 +14,5 @@
 }
 .error {
     color: var(--red);
+    font-size: small;
 }

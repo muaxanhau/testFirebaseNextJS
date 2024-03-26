@@ -28,16 +28,16 @@ export const useFirstSetupApp = () => {
   };
 
   useLayoutEffect(() => {
-    auth.onIdTokenChanged(async (user) => {
-      if (!user) {
-        resetAllStores();
-        queryClient.clear();
-        return;
-      }
-
-      const token = await user.getIdToken();
-      setAuth({ token });
-    });
+    // not work? bug from  lib?
+    // auth.onIdTokenChanged(async (user) => {
+    //   if (!user) {
+    //     resetAllStores();
+    //     queryClient.clear();
+    //     return;
+    //   }
+    //   const token = await user.getIdToken();
+    //   setAuth({ token });
+    // });
   }, []);
 
   useEffect(checkNavigation, []);

@@ -4,11 +4,7 @@ import {
   useController,
 } from "react-hook-form";
 import styles from "./component.module.css";
-import {
-  DetailedHTMLProps,
-  HTMLInputTypeAttribute,
-  InputHTMLAttributes,
-} from "react";
+import { HTMLInputTypeAttribute } from "react";
 
 type InputTextProps<T extends FieldValues> = UseControllerProps<T> & {
   type?: HTMLInputTypeAttribute | undefined;

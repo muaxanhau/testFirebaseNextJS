@@ -1,8 +1,8 @@
+"use client";
 import { config } from "@/config";
 import { validationUtil } from "./validation.util";
 import { AxiosError, AxiosResponse } from "axios";
 import { ErrorResponseBaseModel } from "@/models";
-import { images } from "@/values";
 import { z } from "zod";
 
 function* generatorIncreaseIndex() {
@@ -239,7 +239,7 @@ const opacityColor = (color: string, opacity = 1) => {
  */
 const imageUrl = (url?: string) => {
   const source =
-    !!url?.length && validationUtil.isUrl(url) ? { uri: url } : images.nullImg;
+    !!url?.length && validationUtil.isUrl(url) ? url : "/img_null.png";
   return source;
 };
 

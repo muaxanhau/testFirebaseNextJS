@@ -6,7 +6,7 @@ import { useApiQuery, KeyService, service } from "../services";
 export type GetAllCategoriesWithItemsOutput = (CategoryIdModel & {
   items: ItemIdModel[];
 })[];
-export const useGetAllCategoriesAndItemsRepo = () => {
+export const useGetAllCategoriesWithItemsRepo = () => {
   const { data: categoriesWithItems, ...rest } =
     useApiQuery<GetAllCategoriesWithItemsOutput>({
       queryKey: [KeyService.GET_ALL_CATEGORIES_WITH_ITEMS],

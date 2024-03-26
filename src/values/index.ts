@@ -1,4 +1,3 @@
-export * from './colors'
-export * from './assets'
-export * from './styles'
-export * from './values'
+export * from "./colors";
+export * from "./styles";
+export * from "./values";

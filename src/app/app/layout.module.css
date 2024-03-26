@@ -1,7 +1,8 @@
 .container {
     display: flex;
-    min-height: 100vh;
+    height: 100%;
+    gap: calc(var(--gap-2)*2);
 }
 .child {
-    flex:1
+    flex:1;
 }

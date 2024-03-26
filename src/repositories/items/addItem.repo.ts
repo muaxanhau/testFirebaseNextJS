@@ -1,10 +1,5 @@
 import { devToolConfig } from "@/config";
-import {
-  CategoryModel,
-  CategoryIdModel,
-  ItemModel,
-  ItemIdModel,
-} from "@/models";
+import { ItemModel, ItemIdModel } from "@/models";
 import { utils } from "@/utils";
 import { useQueryClient } from "@tanstack/react-query";
 import { useApiMutation, KeyService, service } from "../services";

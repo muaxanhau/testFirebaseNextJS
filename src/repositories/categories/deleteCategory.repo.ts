@@ -4,9 +4,10 @@ import { utils } from "@/utils";
 import { devToolConfig } from "@/config";
 import { GetAllCategoriesOutput } from "./getAllCategories.repo";
 
+type DeleteCategoryProps = { onSuccess?: () => void } | void;
 type DeleteCategoryInput = { id: string };
 type DeleteCategoryOutput = null;
-export const useDeleteCategoryRepo = () => {
+export const useDeleteCategoryRepo = (props: DeleteCategoryProps) => {
   const queryClient = useQueryClient();
 
   const { mutate: deleteCategory, ...rest } = useApiMutation<
@@ -36,6 +37,7 @@ export const useDeleteCategoryRepo = () => {
         queryKey: [KeyService.GET_ALL_CATEGORIES],
       });
     },
+    ...props,
   });
   return { deleteCategory, ...rest };
 };

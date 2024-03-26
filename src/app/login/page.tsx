@@ -4,9 +4,9 @@ import { ButtonComponent, InputTextComponent } from "@/components";
 import { ScreenBaseModel, loginFormSchema } from "@/models";
 import { useHookForm } from "@/utils";
 import React from "react";
-import styles from "./page.module.css";
 import { useLoginRepo } from "@/repositories";
 import { useRouter } from "next/navigation";
+import containerStyles from "@/values/css/container.module.css";
 
 const Page: ScreenBaseModel = () => {
   const router = useRouter();
@@ -22,10 +22,11 @@ const Page: ScreenBaseModel = () => {
   });
 
   const onClickLogin = handleSubmit((data) => login(data));
+  const onClickSignUp = () => router.push("/sign-up");
 
   return (
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
+    <div className={containerStyles.centerContainer}>
+      <div className={containerStyles.smallFormContainer}>
         <h1>Login</h1>
 
         <InputTextComponent
@@ -43,8 +44,12 @@ const Page: ScreenBaseModel = () => {
         <ButtonComponent
           title="Login"
           onClick={onClickLogin}
-          type="outline"
           isLoading={isPending}
+        />
+        <ButtonComponent
+          title="Sign up"
+          onClick={onClickSignUp}
+          type="outline"
         />
       </div>
     </div>

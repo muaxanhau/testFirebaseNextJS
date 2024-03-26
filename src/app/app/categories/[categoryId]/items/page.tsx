@@ -18,6 +18,7 @@ import {
 } from "@/repositories";
 import { useParams, useRouter } from "next/navigation";
 import styles from "./page.module.css";
+import containerStyles from "@/values/css/container.module.css";
 
 const Page: ScreenBaseModel = () => {
   const router = useRouter();
@@ -35,9 +36,10 @@ const Page: ScreenBaseModel = () => {
   const onClickAdd = handleSubmit((data) => addItem(data));
 
   return (
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
+    <div className={containerStyles.centerContainer}>
+      <div className={containerStyles.formContainer}>
         <h1>Add item</h1>
+
         <InputTextComponent control={control} name="name" placeholder="name" />
         <InputTextComponent
           control={control}
