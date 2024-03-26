@@ -21,13 +21,13 @@ import styles from "./page.module.css";
 
 const Page: ScreenBaseModel = () => {
   const router = useRouter();
-  const { id } = useParams<{ id: string }>();
+  const { categoryId } = useParams<{ categoryId: string }>();
   const { control, handleSubmit } = useHookForm({
     schema: addItemFormSchema,
     defaultValues: {
       name: "",
       color: "",
-      categoryId: id,
+      categoryId,
     },
   });
   const { addItem, isPending } = useAddItemRepo({ onSuccess: router.back });

@@ -12,10 +12,10 @@ import {
 import { useParams, usePathname, useRouter } from "next/navigation";
 
 const Page: ScreenBaseModel = () => {
-  const { id } = useParams<{ id: string }>();
+  const { categoryId } = useParams<{ categoryId: string }>();
   const router = useRouter();
   const pathname = usePathname();
-  const { category } = useGetCategoryRepo({ id });
+  const { category } = useGetCategoryRepo({ id: categoryId });
 
   const onClick = () => {
     router.push(`${pathname}/items`);
