@@ -33,6 +33,8 @@ const Page: ScreenBaseModel = () => {
       <h1>{categoryWithAllItems?.name}</h1>
       <p>{categoryWithAllItems?.description}</p>
 
+      <h3>Items</h3>
+
       <div className={containerStyles.listContainer}>
         <div className={containerStyles.itemContainer} onClick={onClickAdd}>
           <Image
