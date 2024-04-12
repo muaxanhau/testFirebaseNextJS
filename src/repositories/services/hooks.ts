@@ -15,15 +15,13 @@ const useErrorEffect = (error: unknown) => {
     // do something else here
 
     if (typeof error === "string") {
-      console.log(error);
-      // Alert.alert('Warning', error);
+      alert(error);
       return;
     }
 
     // for firebase exception
     const e = error as { message: string; code: string };
-    console.log(e.message);
-    // Alert.alert('Warning', e.message);
+    alert(e.message);
   }, [error]);
 };
 

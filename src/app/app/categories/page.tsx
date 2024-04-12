@@ -5,7 +5,7 @@ import { ScreenBaseModel, loginFormSchema } from "@/models";
 import { useHookForm, utils } from "@/utils";
 import React, { useEffect } from "react";
 import { useGetAllCategoriesRepo } from "@/repositories";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Table2 } from "./test/table2/table2";
 import styles from "./page.module.css";
 import Image from "next/image";
@@ -13,16 +13,14 @@ import containerStyles from "@/values/css/container.module.css";
 
 const Page: ScreenBaseModel = () => {
   const router = useRouter();
-  const pathname = usePathname();
   const { categories } = useGetAllCategoriesRepo();
 
   const onClickAdd = () => router.push("/app/categories/add");
   const onClickCategory = (id: string) => () => {
-    router.push(`/app/categories/${id}`);
+    router.push(`categories/${id}`);
   };
   const onClickEdit = (id: string) => () => {
-    const path = `${pathname}/${id}/edit`;
-    router.push(path);
+    router.push(`categories/${id}/edit`);
   };
 
   // return <Table2 />;

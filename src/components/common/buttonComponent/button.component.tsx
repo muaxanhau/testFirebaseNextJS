@@ -77,6 +77,7 @@ export const ButtonComponent: FC<ButtonProps> = ({
   color = "default",
   disabled,
   isLoading,
+  style,
 }) => {
   const { background, text } = colorObj[color][type];
   const { border } = colorObj[color];
@@ -92,7 +93,7 @@ export const ButtonComponent: FC<ButtonProps> = ({
   return (
     <button
       className={styles.container}
-      style={{ backgroundColor: background, borderColor: border }}
+      style={{ backgroundColor: background, borderColor: border, ...style }}
       onClick={onClickButton}
     >
       <p style={{ color: titleColor }}>{title}</p>

@@ -14,7 +14,7 @@ export const useGetCategoryWithAllItemsRepo = ({
 }: GetCategoryWithAllItemsProps) => {
   const { data: categoryWithAllItems, ...rest } =
     useApiQuery<GetCategoryWithAllItemsOutput>({
-      queryKey: [KeyService.GET_ALL_CATEGORY_WITH_ALL_ITEMS, id],
+      queryKey: [KeyService.GET_CATEGORY_WITH_ALL_ITEMS, id],
       queryFn: async () => {
         await utils.sleep(devToolConfig.delayFetching);
 

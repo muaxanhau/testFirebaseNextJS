@@ -47,6 +47,7 @@
     transform: scale(0.99);
     justify-content: center;
     cursor: pointer;
+    box-shadow: var(--box-shadow);
 }
 .itemContainer:hover {
     transform: scale(1);

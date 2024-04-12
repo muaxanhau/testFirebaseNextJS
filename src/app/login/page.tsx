@@ -18,7 +18,7 @@ const Page: ScreenBaseModel = () => {
     },
   });
   const { login, isPending } = useLoginRepo({
-    onSuccess: () => router.push("/app/categories"),
+    onSuccess: () => router.replace("/app/categories"),
   });
 
   const onClickLogin = handleSubmit((data) => login(data));

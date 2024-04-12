@@ -12,17 +12,29 @@ type LeftSideBarProps = ComponentBaseModel;
 export const LeftSideBarComponent: FC<LeftSideBarProps> = () => {
   const router = useRouter();
   const canGoBack = useCanGoBack();
-  const { logout } = useLogoutRepo({
-    onSuccess: () => {
-      router.push("/login");
-    },
-  });
+  const { logout } = useLogoutRepo({ onSuccess: () => router.push("/login") });
+
+  const onClickHome = () => router.push("/app/categories");
+  const onClickProfile = () => router.push("/app/profile");
+  const onClickUsers = () => router.push("/app/users");
+  const onClickCarts = () => router.push("/app/carts");
 
   return (
     <div className={styles.container}>
-      {canGoBack && (
-        <ButtonComponent title="Back" onClick={router.back} type="outline" />
-      )}
+      <ButtonComponent
+        title="Back"
+        onClick={router.back}
+        type="outline"
+        style={{ opacity: canGoBack ? 1 : 0 }}
+        disabled={!canGoBack}
+      />
+
+      <div className={styles.buttonWrapper}>
+        <ButtonComponent title="Home" color="success" onClick={onClickHome} />
+        <ButtonComponent title="Carts" color="warning" onClick={onClickCarts} />
+        <ButtonComponent title="Profile" onClick={onClickProfile} />
+        <ButtonComponent title="Users" onClick={onClickUsers} />
+      </div>
 
       <ButtonComponent
         title="Logout"

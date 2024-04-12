@@ -147,6 +147,12 @@ export const useIsLoading = () => {
 
 export const useCanGoBack = () => {
   const pathname = usePathname();
+  const [] = useState<string[]>([]);
+
+  useEffect(() => {
+    console.log("================= change history");
+    console.log(pathname);
+  }, [pathname]);
 
   const canGoBack = pathname !== "/" && pathname !== "/login";
   return canGoBack;

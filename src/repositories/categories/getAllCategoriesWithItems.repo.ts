@@ -9,7 +9,7 @@ export type GetAllCategoriesWithItemsOutput = (CategoryIdModel & {
 export const useGetAllCategoriesWithItemsRepo = () => {
   const { data: categoriesWithItems, ...rest } =
     useApiQuery<GetAllCategoriesWithItemsOutput>({
-      queryKey: [KeyService.GET_ALL_CATEGORIES_WITH_ITEMS],
+      queryKey: [KeyService.GET_ALL_CATEGORIES_WITH_ALL_ITEMS],
       queryFn: async () => {
         await utils.sleep(devToolConfig.delayFetching);
 

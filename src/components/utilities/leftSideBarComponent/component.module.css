@@ -2,10 +2,16 @@
     display: flex;
     flex-direction: column;
     background-color: var(--primary300);
-    justify-content: space-between;
     width: 20vw;
     min-width: 150px;
     max-width: 250px;
     padding: var(--padding-1);
     border-radius: var(--border-radius-2);
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+}
+.buttonWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
 }

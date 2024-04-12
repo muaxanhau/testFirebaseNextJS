@@ -24,7 +24,11 @@ export const useAddItemRepo = (props: AddItemProps) => {
       );
       return response.data;
     },
-    onSuccess: (category) => {
+    onSuccess: ({ categoryId }) => {
+      queryClient.invalidateQueries({
+        queryKey: [KeyService.GET_CATEGORY_WITH_ALL_ITEMS, categoryId],
+      });
+
       if (typeof props === "undefined") return;
       props.onSuccess?.();
     },
